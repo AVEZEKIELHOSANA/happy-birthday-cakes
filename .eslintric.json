@@ -1,0 +1,21 @@
+{
+  "plugins": ["boundaries"],
+  "settings": {
+    "boundaries/elements": [
+      { "type": "parent", "pattern": "src/app/(parent)/**" },
+      { "type": "admin", "pattern": "src/app/(admin)/**" },
+      { "type": "institution", "pattern": "src/app/(institution)/**" },
+      { "type": "shared", "pattern": ["src/lib/**", "src/components/ui/**", "src/stores/**"] }
+    ]
+  },
+  "rules": {
+    "boundaries/element-types": [2, {
+      "default": "disallow",
+      "rules": [
+        { "from": "parent", "allow": ["shared"] },
+        { "from": "admin", "allow": ["shared"] },
+        { "from": "institution", "allow": ["shared"] }
+      ]
+    }]
+  }
+}
